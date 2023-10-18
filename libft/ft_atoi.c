@@ -13,7 +13,7 @@
 #include "libft.h"
 #include <unistd.h>
 
-char	*ft_spaces(char *str)
+char *ft_spaces(char *str)
 {
 	while ((*str >= 9 && *str <= 13) || *str == 32)
 	{
@@ -22,7 +22,7 @@ char	*ft_spaces(char *str)
 	return (str);
 }
 
-char	*ft_plusminus(char *str, int *parity)
+char *ft_plusminus(char *str, int *parity)
 {
 	while (*str == '+' || *str == '-')
 	{
@@ -35,11 +35,11 @@ char	*ft_plusminus(char *str, int *parity)
 	return (str);
 }
 
-int	ft_atoi(char *str)
+int ft_atoi(const char *str)
 {
-	int		parity;
-	int		number;
-	char	*numberstring;
+	int parity;
+	int number;
+	char *numberstring;
 
 	numberstring = ft_spaces(str);
 	parity = 0;
@@ -58,12 +58,11 @@ int	ft_atoi(char *str)
 	return (-number);
 }
 
-/*
-#include <stdio.h>
+/* #include <stdio.h>
 int main(void)
-{	
+{
 	char *str = "    ---+--+j1234ab567";
 	int number = ft_atoi(str);
 	printf("%d\n", number);
 }
-*/
+ */
