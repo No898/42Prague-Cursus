@@ -6,7 +6,7 @@
 /*   By: todinh <todinh@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 16:35:28 by todinh            #+#    #+#             */
-/*   Updated: 2023/10/18 16:55:41 by todinh           ###   ########.fr       */
+/*   Updated: 2023/10/18 23:45:54 by todinh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,3 +34,43 @@ char	*ft_strnstr(char const *haystack, char const *needle, size_t n)
 	}
 	return (NULL);
 }
+
+/* #include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+    // Test cases
+    char haystack[] = "Hello, this is a test.";
+    char needle1[] = "this";
+    char needle2[] = "world";
+    char needle3[] = "Hello";
+
+    char *result1 = ft_strnstr(haystack, needle1, 20);
+    char *result2 = ft_strnstr(haystack, needle2, 20);
+    char *result3 = ft_strnstr(haystack, needle3, 20);
+
+    // Check if the results match the expected values
+    if (result1 == NULL)
+        printf("Test 1: Needle not found.\n");
+    else
+        printf("Test 1: Needle found at position: %ld\n", result1 - haystack);
+
+    if (result2 == NULL)
+        printf("Test 2: Needle not found.\n");
+    else
+        printf("Test 2: Needle found at position: %ld\n", result2 - haystack);
+
+    if (result3 == NULL)
+        printf("Test 3: Needle not found.\n");
+    else
+        printf("Test 3: Needle found at position: %ld\n", result3 - haystack);
+
+    return (0);
+	//hledam slove ve vete (podretezce v retezci)
+} */
+
+
+
+
+
