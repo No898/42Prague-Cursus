@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "*.js": "javascript",
+        ".css": "tailwincss",
+        "*.css": "tailwindcss",
+        "libft.h": "c",
+        "stddef.h": "c",
+        "stdlib.h": "c"
+    }
+}

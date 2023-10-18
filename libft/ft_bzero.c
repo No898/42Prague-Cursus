@@ -6,7 +6,7 @@
 /*   By: todinh <todinh@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 16:34:39 by todinh            #+#    #+#             */
-/*   Updated: 2023/10/18 18:50:05 by todinh           ###   ########.fr       */
+/*   Updated: 2023/10/18 22:42:44 by todinh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,37 +14,24 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-    int i;
-    char *tmp;
-
-    i = 0;
-    tmp = (char *)s;
-    if (n == 0)
-        return ;
-    while (i < (int)n)
-    {
-        tmp[i] = '\0';
-        i++;
-    }
+	while (n--)
+		*(unsigned char *)s++ = 0;
 }
+
 
 /* #include <stdio.h>
-void test_ft_bzero(void)
+int main()
 {
     char str[] = "Hello, World!";
-    size_t n = 1;
+    size_t n = sizeof(str);
 
-    printf("Before call ft_bzero: %s\n", str);
+    printf("Original string: %s\n", str);
 
+    // Zavolejte funkci ft_bzero
     ft_bzero(str, n);
 
-    printf("After call ft_bzero: %s\n", str);
-}
+    printf("After ft_bzero: %s\n", str);
 
-int main(void)
-{
-    test_ft_bzero();
-    
-    return 0;
-}
- */
+    return (0);
+    //vystup je Original string: Hello, World! a After ft_bzero:
+} */

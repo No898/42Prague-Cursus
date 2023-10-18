@@ -6,62 +6,60 @@
 /*   By: todinh <todinh@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 15:45:13 by todinh            #+#    #+#             */
-/*   Updated: 2023/10/18 21:14:40 by todinh           ###   ########.fr       */
+/*   Updated: 2023/10/18 22:09:32 by todinh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
 
-char *ft_spaces(char *str)
+static int	check_space(int c)
 {
-	while ((*str >= 9 && *str <= 13) || *str == 32)
-	{
-		str++;
-	}
-	return (str);
+	if ((c > 8 && c < 14)
+		|| (c == 32))
+		return (8192);
+	return (0);
 }
 
-char *ft_plusminus(char *str, int *parity)
+static int	check_digit(int c)
 {
-	while (*str == '+' || *str == '-')
-	{
-		if (*str == '-')
-		{
-			(*parity)++;
-		}
-		str++;
-	}
-	return (str);
+	if (c > 47 && c < 58)
+		return (1);
+	return (0);
 }
 
-int ft_atoi(const char *str)
+int	ft_atoi(char const *str)
 {
-	int parity;
-	int number;
-	char *numberstring;
+	long long int	n;
+	long long int	check;
+	int		sign;
 
-	numberstring = ft_spaces(str);
-	parity = 0;
-	number = 0;
-	numberstring = ft_plusminus(numberstring, &parity);
-	while (*numberstring >= 48 && *numberstring <= 57)
+	n = 0;
+	sign = 1;
+	while (*str && check_space(*str))
+		str++;
+	if (*str == 45 || *str == 43)
 	{
-		number *= 10;
-		number += *numberstring - 48;
-		numberstring++;
+		if (*str == 45)
+			sign *= -1;
+		str++;
 	}
-	if (!(parity % 2))
+	while (*str && check_digit(*str))
 	{
-		return (number);
+		check = n;
+		n = n * 10 + sign * (*str - 48);
+		if (n > check && sign < 0)
+			return (0);
+		if (n < check && sign > 0)
+			return (-1);
+		str++;
 	}
-	return (-number);
+	return (n);
 }
 
 /* #include <stdio.h>
 int main(void)
 {
-	char *str = "    ---+--+j1234ab567";
+	char *str = "99999999999999999999";
 	int number = ft_atoi(str);
 	printf("%d\n", number);
 }
