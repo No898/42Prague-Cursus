@@ -6,64 +6,38 @@
 /*   By: todinh <todinh@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 16:35:22 by todinh            #+#    #+#             */
-/*   Updated: 2023/10/18 16:48:26 by todinh           ###   ########.fr       */
+/*   Updated: 2023/10/18 23:41:41 by todinh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-int	ft_strlen(char *str)
+char	*ft_strdup(const char *s)
 {
-	int	count;
+	int		i;
+	int		j;
+	char	*str;
 
-	count = 0;
-	while (*str != '\0')
+	i = 0;
+	j = ft_strlen(s);
+	str = (char *)malloc(sizeof(*str) * (j + 1));
+	while (i < j)
 	{
-		str++;
-		count++;
+		str[i] = s[i];
+		i++;
 	}
-	return (count);
+	str[i] = '\0';
+	return (str);
 }
 
-char	*ft_strcpy(char *dest, char *src)
-{
-	char	*temp;
-
-	temp = dest;
-	while (*src != '\0')
-	{
-		*dest = *src;
-		dest++;
-		src++;
-	}
-	*dest = '\0';
-	return (temp);
-}
-
-char	*ft_strdup(char *src)
-{
-	int		length;
-	char	*duplicate;
-
-	length = ft_strlen(src);
-	duplicate = malloc(length + 1);
-	if (duplicate == 0)
-	{
-		return (0);
-	}
-	ft_strcpy(duplicate, src);
-	return (duplicate);
-}
-
-/*
-#include <stdio.h>
+/* #include <stdio.h>
 int	main(void)
 {
 	char	src[50];
 	char	*duplicate;
 
 	printf("Try some text: ");
-	scanf("%s", s	rc);
+	scanf("%s", src);
 	duplicate = ft_strdup(src);
 	if (duplicate != 0)
 	{
@@ -74,5 +48,4 @@ int	main(void)
 	{
 		printf("Something is wrong.");
 	}
-}
-*/
+} */

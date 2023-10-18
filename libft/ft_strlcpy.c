@@ -6,14 +6,13 @@
 /*   By: todinh <todinh@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 16:35:24 by todinh            #+#    #+#             */
-/*   Updated: 2023/10/18 17:07:15 by todinh           ###   ########.fr       */
+/*   Updated: 2023/10/18 23:33:57 by todinh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
 	unsigned int	index;
 	unsigned int	lenght;
@@ -37,9 +36,7 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 	return (lenght);
 }
 
-/* #include <stdio.h>
-unsigned int ft_strlcpy(char *dest, char *src, unsigned int size);
-
+#include <stdio.h>
 int main() {
     char src[] = "Turtle soup isnt soup.";
     char dest[15];
@@ -51,4 +48,4 @@ int main() {
     printf("Length of the copied string: %u\n", result);
     
     return 0;
-} */
+}
